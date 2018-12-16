@@ -9,7 +9,7 @@ export default EmberObject.extend({
   },
 
   createMap(element, location) {
-    let map = new google.maps.Map(element, { scrollwheel: false, zoom: 10, fullscreenControl: false });
+    let map = new google.maps.Map(element, { scrollwheel: false, zoom: 12, fullscreenControl: false });
     this.pinLocation(location, map);
     return map;
   },

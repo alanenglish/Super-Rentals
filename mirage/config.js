@@ -11,7 +11,8 @@ export default function() {
         city: 'San Francisco',
         category: 'Estate',
         bedrooms: 15,
-        image: 'https://upload.wikimedia.org/wikipedia/commons/c/cb/Crane_estate_(5).jpg'
+        image: 'https://upload.wikimedia.org/wikipedia/commons/c/cb/Crane_estate_(5).jpg',
+        description: 'This grand old mansion sits on over 100 acres of rolling hills and dense redwood forests.'
       }
     }, {
       type: 'rentals',
@@ -22,7 +23,8 @@ export default function() {
         city: 'Seattle',
         category: 'Condo',
         bedrooms: 1,
-        image: 'https://upload.wikimedia.org/wikipedia/commons/0/0e/Alfonso_13_Highrise_Tegucigalpa.jpg'
+        image: 'https://upload.wikimedia.org/wikipedia/commons/0/0e/Alfonso_13_Highrise_Tegucigalpa.jpg',
+        description: 'This uber modern condo situated in downtown Seattle defines lavish living.'
       }
     }, {
       type: 'rentals',
@@ -33,7 +35,8 @@ export default function() {
         city: 'Portland',
         category: 'Apartment',
         bedrooms: 3,
-        image: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Wheeldon_Apartment_Building_-_Portland_Oregon.jpg'
+        image: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Wheeldon_Apartment_Building_-_Portland_Oregon.jpg',
+        description: 'This beautiful apartment exudes character and charm which is rarely found.'
       }
   }]
 
@@ -47,6 +50,10 @@ export default function() {
       return { data: rentals };
     }
   });
+
+  this.get('/rentals/:id', function(db, request) {
+    return { data: rentals.find((rental) => request.params.id === rental.id) };
+  })
 
 }
 // These comments are here to help you get started. Feel free to delete them.
